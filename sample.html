@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html> 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minmum-scale=1.0, maximum-scale=1.0"/>
 
-	<script src="./js/kps.customscheme.js"></script>
+<html>
+<head>
+    <script src="./js/kps.CustomSchemeManager.js"></script>
 	<script type="text/javascript">
-		// Create CustomSchemeManager Class
-		var csm = new CustomSchemeManager();
-		// set your app scheme
-		csm.scheme = "myscheme";
-		// set your android package name
-		csm.androidPackageName = "test.my.android.app.packagename";
-		// set your ios app store link
-		csm.iosMarketUrl = "https://itunes.apple.com/test/my/android/app/~~~~";
-		
 		function callMyScheme() {
-			// param: host&params
+			// Create CustomSchemeManager Class
+			var csm = new CustomSchemeManager();
+			// set your app scheme
+			csm.scheme = "myscheme";
+			// set your android package name
+			csm.androidPackageName = "my.android.app.packname";
+			// set your ios app store link
+			csm.iosAppID = "123456789";
+			// csm.iosMarketUrl = "https://itunes.apple.com/us/app/keynote/id857659616?mt=8";
+			csm.query = "test?param1=0&param2=1";
+
 			// Call your custom scheme or go to market
 			// CustomSchemeManager will replace your url like : "myscheme://test?param1=0&param2=1"
-			csm.call("test?param1=0&param2=1");
+			csm.run();
 		}
 	</script>
 </head>
 
 <body>
-	<button onclick='javascript:callMyScheme()'>call my scheme</button>
-</body>  
+	<button onclick='javascript:callMyScheme()'>Call my scheme</button>
+</body>
 </html>
